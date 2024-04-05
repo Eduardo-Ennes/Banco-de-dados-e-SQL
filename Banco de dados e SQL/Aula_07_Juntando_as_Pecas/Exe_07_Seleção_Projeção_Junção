@@ -37,6 +37,19 @@ on idcliente = id_cliente
 where sexo = 'F'; /* Seleção */
 
 
+select nome, sexo, email, tipo, numero
+from formulario
+inner join telefone
+on idcliente = id_cliente;
+
+
+select nome, sexo, email, tipo, numero
+from formulario
+inner join telefone
+on idcliente = id_cliente;
+where numero is null;
+
+
 /* 
 
 Quando for criar o codigo deve-se pensar ou resolver:
@@ -46,3 +59,28 @@ Quando for criar o codigo deve-se pensar ou resolver:
 4° Seleção 
 
 */ 
+
+
+/* Junção com mais de duas listas */ 
+
+/* 2 formas de se trabalhar com a QUERY*/
+
+/* 1° forma */
+select formulario.nome, formulario.sexo, 
+enderecos.bairro, enderecos.cidade, 
+telefone.tipo, telefone.numero
+from formulario
+inner join enderecos 
+on formulario.idcliente = enderecos.id_cliente
+inner join telefone
+on formulario.idcliente = telefone.id_cliente;
+
+
+/* 2° forma - Esta forma ajuda melhor na performace do seu banco de dados */
+select F.nome, F.sexo, E.bairro, E.cidade, T.tipo, T.numero
+from formulario F
+inner join enderecos E
+on F.idcliente = E.id_cliente
+inner join telefone T
+on F.idcliente = T.id_cliente
+where sexo = 'F';
