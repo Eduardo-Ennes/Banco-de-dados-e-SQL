@@ -10,24 +10,19 @@ PRIMEIRA FORMA NORMAL
 Isso é o que chamamos de chave primário ou primary key 
 */
 
-
-/* Passo a passo criando um banco de dados */
-
 CREATE DATABASE comercio;
 
-use comercio;
+USE comercio;
 
-create table cliente(
-	IDCLIENTE int primary key auto_increment, 
-	NOME VARCHAR(30) not null, 
-	SEXO enum('M', 'F') not null,
-	EMAIL varchar(50) UNIQUE,
-	CPF varchar(15) UNIQUE
+create table Formulario(
+	IDCLIENTE int PRIMARY KEY AUTO_INCREMENT,
+	NOME VARCHAR(30) NOT NULL,
+	SEXO ENUM('M' , 'F') NOT NULL, 
+	EMAIL VARCHAR(50) UNIQUE,
+	CPF VARCHAR(15) UNIQUE
 );
 
-
 /* 
-
 PRIMARY KEY --> Funciona como um identificador para cada cadastro.
 
 NOT NULL --> O campo deve ser preenchido obrigatoriamente, não pode ter valor null, não pode ser vazio.
@@ -35,14 +30,59 @@ NOT NULL --> O campo deve ser preenchido obrigatoriamente, não pode ter valor n
 ENUM --> funciona como uma caixa, deve-se escolher uma das opções, também é obrigatório escolher uma das opções.
 
 UNIQUE --> O valor se torna unico, não haverá nem um igual, igual ao CPF .
-
  */
 
 
-create table endereco(
-	IDENDERECO int primary key auto_increment,
-	RUA varchar(30) not null,
-	BAIRRO varchar(30) not null,
-	CIDADE varchar (30) not null,
-	ESTADO char(2) not null
+create table Enderecos(
+	IDENDERECOS int PRIMARY KEY AUTO_INCREMENT,
+	RUA VARCHAR(30) NOT NULL,
+	BAIRRO VARCHAR(30) NOT NULL,
+	CIDADE VARCHAR(30) NOT NULL, 
+	ESTADO VARCHAR(15) NOT NULL,
+	ID_CLIENTE INT UNIQUE,
+	FOREIGN KEY (ID_CLIENTE)
+	REFERENCES Formulario(IDCLIENTE)
 );
+
+
+create table Telefone(
+	IDTEL INT PRIMARY KEY AUTO_INCREMENT,
+	TIPO ENUM('RES', 'COM', 'CEL') NOT NULL,
+	NUMERO VARCHAR(10) NOT NULL,
+	ID_CLIENTE INT,
+	FOREIGN KEY (ID_CLIENTE)
+	REFERENCES Formulario(IDCLIENTE)
+);
+
+
+/* Este insert vai apresentar um erro, deve-se colocar todos os valores destinados no banco de dados */ 
+INSERT INTO Formulario VALUES(NULL, 'Eduardo', 'M', 'edu@123.com',); 
+
+
+/* Inserindo dados na tabela Formulario*/
+/* Forma certa com todos os campos preenchidos */
+INSERT INTO Formulario VALUES(NULL, 'Eduardo', 'M', 'edu@123.com', '85698652365');
+INSERT INTO Formulario VALUES(NULL, 'Letiçia', 'F', 'letiçia@123.com', '63521653456');
+INSERT INTO Formulario VALUES(NULL, 'Barbara', 'F', 'barbara@123.com', '75632641563');
+INSERT INTO Formulario VALUES(NULL, 'Fernando', 'M', 'fefe@123.com', '34261845326');
+INSERT INTO Formulario VALUES(NULL, 'Maira', 'F', 'Maira@123.com', '15236456325');
+INSERT INTO Formulario VALUES(NULL, 'Celia', 'F', 'celia@123.com', '95686953265');
+INSERT INTO Formulario VALUES(NULL, 'Bia', 'F', 'bia@123.com', '41524178452');
+INSERT INTO Formulario VALUES(NULL, 'Ronaldinho', 'M', 'ronaldinho@123.com', '45625641523');
+
+
+/* Inserindo dados na tabela ENDERECOS */
+INSERT INTO ENDERECOS VALUES(NULL, 'General Roca', 'Tijuca', 'Rio de Janeiro', 'RJ', 1);
+INSERT INTO ENDERECOS VALUES(NULL, 'Sal sem dente', 'Vila isabel', 'Rio de Janeiro', 'RJ', 2);
+INSERT INTO ENDERECOS VALUES(NULL, 'Alura', 'Catete', 'Rio de Janeiro', 'RJ', 3);
+INSERT INTO ENDERECOS VALUES(NULL, 'Boiabeira grande', 'Copacabana', 'Rio de Janeiro', 'RJ', 4);
+INSERT INTO ENDERECOS VALUES(NULL, 'Munis freitas', 'Leblon', 'Rio de Janeiro', 'RJ', 5);
+INSERT INTO ENDERECOS VALUES(NULL, 'Súmario da voz', 'Barra da tijuca', 'Rio de Janeiro', 'RJ', 6);
+INSERT INTO ENDERECOS VALUES(NULL, 'Meia nove', 'Tijuca', 'Rio de Janeiro', 'RJ', 7);
+INSERT INTO ENDERECOS VALUES(NULL, 'Palho sem aço', 'Ipanema', 'Rio de Janeiro', 'RJ', 8);
+
+
+/* Inserindo dados na tabela TELEFONE */
+
+
+
