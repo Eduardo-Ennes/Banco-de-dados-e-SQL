@@ -1,0 +1,48 @@
+/* Seleção e Projeção */
+
+/* Projeção, Seleção e Junção */
+
+/* 
+
+PROJEÇÃO --> é tudo aquilo que você que mostra 
+
+SELEÇÃO --> é um subconjunto do conjunto total de registros de uma tabela. 
+Usa-se a seleção para filtrar o subconjunto que voce quer mostar tela.
+A clausula de seleção é o WHERE.
+
+*/
+
+select nome, sexo, email /* PROJEÇÃO */
+from formulario /* Origem */
+where sexo = 'F'; /* SELEÇÃO */
+
+/* JUNÇÃO */ 
+
+/* 
+
+Quando trabalhamos com junção usamos a condição INNER JOIN 
+
+*/
+
+select nome, sexo, bairro, cidade
+from formulario
+inner join enderecos
+on idcliente = id_cliente;
+
+
+select nome, sexo, bairro, cidade /* Projeção */
+from formulario /* Origem */
+inner join enderecos /* Junção */
+on idcliente = id_cliente
+where sexo = 'F'; /* Seleção */
+
+
+/* 
+
+Quando for criar o codigo deve-se pensar ou resolver:
+1° Projeção 
+2° Origem 
+3° Junção 
+4° Seleção 
+
+*/ 
