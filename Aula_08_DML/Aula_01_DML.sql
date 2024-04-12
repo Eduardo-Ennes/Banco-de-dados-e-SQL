@@ -6,3 +6,24 @@ DCL - Date Control Language
 TCL - Transanction Control Language 
 
 */
+
+insert into formulario values (null, 'Cassia', 'M', 'cassia@113.com', '89563256417');
+insert into enderecos values (null, 'Rua Tom Jobim', 'Manguinhos', 'Buzios', 'RJ', 9);
+
+ 
+ select f.idcliente, f.nome, f.sexo, e.rua, e.bairro, e.estado
+ from formulario f
+ inner join enderecos e
+ on idcliente = id_cliente;
+
+ 
+ update formulario
+ 	set sexo = 'F'
+ 	where idcliente = 9;
+
+
+insert into formulario values(null, 'xxx', 'M', 'xxx', 'xxx');
+
+
+delete from formulario 
+	where idcliente = 10;
