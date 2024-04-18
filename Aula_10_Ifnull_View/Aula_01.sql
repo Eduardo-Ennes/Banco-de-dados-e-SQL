@@ -112,3 +112,27 @@ on f.idcliente = t.id_cliente;
 | Barbara    | barbara@123.com    | RJ     | 23652369 |
 | Celia      | celia@123.com      | RJ     | 45632145 |
 +------------+--------------------+--------+----------+
+
+
+
+/* ----- VIEW ----- */ 
+/* Criando uma função view */
+
+create view V_RELATORIO as 
+select f.idcliente, f.nome, f.sexo, f.email, f.cpf, 
+e.rua, e.bairro, e.cidade, e.estado, 
+t.numero, t.tipo
+from formulario f 
+inner join enderecos e 
+on f.idcliente = e.id_cliente
+inner join telefone t 
+on f.idcliente = t.id_cliente;
+
+
+/* Apagando uma função view */
+drop view RELATORIO;
+
+
+select * from RELATORIO;
+
+/* Tabela ficou muito grande para ser colocada aqui. */ 

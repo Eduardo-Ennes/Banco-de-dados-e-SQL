@@ -10,6 +10,8 @@ on f.idcliente = e.id_cliente
 inner join telefone t  
 on f.idcliente = t.id_cliente;
 
+/* Tabela ficou muito grande para ser colocada aqui. */ 
+
 
 2)
 select idcliente, nome, sexo, email, cpf, 
