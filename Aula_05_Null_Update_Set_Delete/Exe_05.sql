@@ -27,6 +27,13 @@ where nome = 'JORGE';
 
 select count(*) from cliente;  --> 6
 
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+
+
 select count(*) from cliente   --> 1
 where nome = 'ana';
 

@@ -16,6 +16,25 @@ select nome, sexo, email /* PROJEÇÃO */
 from formulario /* Origem */
 where sexo = 'F'; /* SELEÇÃO */
 
++----------+------+-------------------+
+| nome     | sexo | email             |
++----------+------+-------------------+
+| GIOVANA  | F    | NULL              |
+| KARLA    | F    | KARLA@GMAIL.COM   |
+| DANIELE  | F    | DANIELE@GMAIL.COM |
+| LORENA   | F    | NULL              |
+| ELAINE   | F    | ELAINE@GLOBO.COM  |
+| CARMEM   | F    | CARMEM@IG.COM     |
+| ADRIANA  | F    | ADRIANA@GMAIL.COM |
+| JOICE    | F    | JOICE@GMAIL.COM   |
+| Letiçia  | F    | letiçia@123.com   |
+| Barbara  | F    | barbara@123.com   |
+| Maira    | F    | Maira@123.com     |
+| Celia    | F    | celia@123.com     |
+| Bia      | F    | bia@123.com       |
++----------+------+-------------------+
+
+
 /* JUNÇÃO */ 
 
 /* 
@@ -29,6 +48,32 @@ from formulario
 inner join enderecos
 on idcliente = id_cliente;
 
++------------+------+-----------------+----------------+
+| nome       | sexo | bairro          | cidade         |
++------------+------+-----------------+----------------+
+| FLAVIO     | M    | CASCADURA       | B. HORIZONTE   |
+| ANDRE      | M    | ESTACIO         | RIO DE JANEIRO |
+| GIOVANA    | F    | CENTRO          | RIO DE JANEIRO |
+| KARLA      | F    | COPACABANA      | RIO DE JANEIRO |
+| DANIELE    | F    | CENTRO          | VITORIA        |
+| LORENA     | F    | LEBLON          | RIO DE JANEIRO |
+| EDUARDO    | M    | CENTRO          | CURITIBA       |
+| ANTONIO    | M    | JARDINS         | SAO PAULO      |
+| ANTONIO    | M    | BOM RETIRO      | CURITIBA       |
+| ELAINE     | F    | LAPA            | SAO PAULO      |
+| CARMEM     | F    | CENTRO          | RIO DE JANEIRO |
+| ADRIANA    | F    | CENTRO          | RIO DE JANEIRO |
+| JOICE      | F    | CENTRO          | RIO DE JANEIRO |
+| Eduardo    | M    | Tijuca          | Rio de Janeiro |
+| Letiçia    | F    | Vila isabel     | Rio de Janeiro |
+| Barbara    | F    | Catete          | Rio de Janeiro |
+| Fernando   | M    | Copacabana      | Rio de Janeiro |
+| Maira      | F    | Leblon          | Rio de Janeiro |
+| Celia      | F    | Barra da tijuca | Rio de Janeiro |
+| Bia        | F    | Tijuca          | Rio de Janeiro |
+| Ronaldinho | M    | Ipanema         | Rio de Janeiro |
++------------+------+-----------------+----------------+
+
 
 select nome, sexo, bairro, cidade /* Projeção */
 from formulario /* Origem */
@@ -36,11 +81,57 @@ inner join enderecos /* Junção */
 on idcliente = id_cliente
 where sexo = 'F'; /* Seleção */
 
++----------+------+-----------------+----------------+
+| nome     | sexo | bairro          | cidade         |
++----------+------+-----------------+----------------+
+| GIOVANA  | F    | CENTRO          | RIO DE JANEIRO |
+| KARLA    | F    | COPACABANA      | RIO DE JANEIRO |
+| DANIELE  | F    | CENTRO          | VITORIA        |
+| LORENA   | F    | LEBLON          | RIO DE JANEIRO |
+| ELAINE   | F    | LAPA            | SAO PAULO      |
+| CARMEM   | F    | CENTRO          | RIO DE JANEIRO |
+| ADRIANA  | F    | CENTRO          | RIO DE JANEIRO |
+| JOICE    | F    | CENTRO          | RIO DE JANEIRO |
+| Letiçia  | F    | Vila isabel     | Rio de Janeiro |
+| Barbara  | F    | Catete          | Rio de Janeiro |
+| Maira    | F    | Leblon          | Rio de Janeiro |
+| Celia    | F    | Barra da tijuca | Rio de Janeiro |
+| Bia      | F    | Tijuca          | Rio de Janeiro |
++----------+------+-----------------+----------------+
+
 
 select nome, sexo, email, tipo, numero
 from formulario
 inner join telefone
 on idcliente = id_cliente;
+
++------------+------+--------------------+------+----------+
+| nome       | sexo | email              | tipo | numero   |
++------------+------+--------------------+------+----------+
+| ANTONIO    | M    | ANTONIO@UOL.COM    | RES  | 68976565 |
+| ANTONIO    | M    | ANTONIO@UOL.COM    | CEL  | 99656675 |
+| CARMEM     | F    | CARMEM@IG.COM      | CEL  | 33567765 |
+| CARMEM     | F    | CARMEM@IG.COM      | CEL  | 88668786 |
+| CARMEM     | F    | CARMEM@IG.COM      | COM  | 55689654 |
+| ADRIANA    | F    | ADRIANA@GMAIL.COM  | COM  | 88687979 |
+| JOICE      | F    | JOICE@GMAIL.COM    | COM  | 88965676 |
+| DANIELE    | F    | DANIELE@GMAIL.COM  | CEL  | 89966809 |
+| LORENA     | F    | NULL               | COM  | 88679978 |
+| EDUARDO    | M    | NULL               | CEL  | 99655768 |
+| ANTONIO    | M    | ANTONIO@IG.COM     | RES  | 89955665 |
+| ANTONIO    | M    | ANTONIO@IG.COM     | RES  | 77455786 |
+| GIOVANA    | F    | NULL               | RES  | 89766554 |
+| ADRIANA    | F    | ADRIANA@GMAIL.COM  | RES  | 77755785 |
+| ANDRE      | M    | ANDRE@GLOBO.COM    | COM  | 44522578 |
+| Letiçia    | F    | letiçia@123.com    | CEL  | 98653652 |
+| Maira      | F    | Maira@123.com      | RES  | 98565326 |
+| Ronaldinho | M    | ronaldinho@123.com | CEL  | 95822368 |
+| Celia      | F    | celia@123.com      | COM  | 23651456 |
+| Fernando   | M    | fefe@123.com       | CEL  | 85623659 |
+| Fernando   | M    | fefe@123.com       | CEL  | 84715245 |
+| Barbara    | F    | barbara@123.com    | CEL  | 23652369 |
+| Celia      | F    | celia@123.com      | COM  | 45632145 |
++------------+------+--------------------+------+----------+
 
 
 select nome, sexo, email, tipo, numero
@@ -75,6 +166,34 @@ on formulario.idcliente = enderecos.id_cliente
 inner join telefone
 on formulario.idcliente = telefone.id_cliente;
 
++------------+------+-----------------+----------------+------+----------+
+| nome       | sexo | bairro          | cidade         | tipo | numero   |
++------------+------+-----------------+----------------+------+----------+
+| ANTONIO    | M    | BOM RETIRO      | CURITIBA       | RES  | 68976565 |
+| ANTONIO    | M    | BOM RETIRO      | CURITIBA       | CEL  | 99656675 |
+| CARMEM     | F    | CENTRO          | RIO DE JANEIRO | CEL  | 33567765 |
+| CARMEM     | F    | CENTRO          | RIO DE JANEIRO | CEL  | 88668786 |
+| CARMEM     | F    | CENTRO          | RIO DE JANEIRO | COM  | 55689654 |
+| ADRIANA    | F    | CENTRO          | RIO DE JANEIRO | COM  | 88687979 |
+| JOICE      | F    | CENTRO          | RIO DE JANEIRO | COM  | 88965676 |
+| DANIELE    | F    | CENTRO          | VITORIA        | CEL  | 89966809 |
+| LORENA     | F    | LEBLON          | RIO DE JANEIRO | COM  | 88679978 |
+| EDUARDO    | M    | CENTRO          | CURITIBA       | CEL  | 99655768 |
+| ANTONIO    | M    | JARDINS         | SAO PAULO      | RES  | 89955665 |
+| ANTONIO    | M    | JARDINS         | SAO PAULO      | RES  | 77455786 |
+| GIOVANA    | F    | CENTRO          | RIO DE JANEIRO | RES  | 89766554 |
+| ADRIANA    | F    | CENTRO          | RIO DE JANEIRO | RES  | 77755785 |
+| ANDRE      | M    | ESTACIO         | RIO DE JANEIRO | COM  | 44522578 |
+| Letiçia    | F    | Vila isabel     | Rio de Janeiro | CEL  | 98653652 |
+| Maira      | F    | Leblon          | Rio de Janeiro | RES  | 98565326 |
+| Ronaldinho | M    | Ipanema         | Rio de Janeiro | CEL  | 95822368 |
+| Celia      | F    | Barra da tijuca | Rio de Janeiro | COM  | 23651456 |
+| Fernando   | M    | Copacabana      | Rio de Janeiro | CEL  | 85623659 |
+| Fernando   | M    | Copacabana      | Rio de Janeiro | CEL  | 84715245 |
+| Barbara    | F    | Catete          | Rio de Janeiro | CEL  | 23652369 |
+| Celia      | F    | Barra da tijuca | Rio de Janeiro | COM  | 45632145 |
++------------+------+-----------------+----------------+------+----------+
+
 
 /* 2° forma - Esta forma ajuda melhor na performace do seu banco de dados */
 select F.nome, F.sexo, E.bairro, E.cidade, T.tipo, T.numero
@@ -84,3 +203,22 @@ on F.idcliente = E.id_cliente
 inner join telefone T
 on F.idcliente = T.id_cliente
 where sexo = 'F';
+
++----------+------+-----------------+----------------+------+----------+
+| nome     | sexo | bairro          | cidade         | tipo | numero   |
++----------+------+-----------------+----------------+------+----------+
+| GIOVANA  | F    | CENTRO          | RIO DE JANEIRO | RES  | 89766554 |
+| DANIELE  | F    | CENTRO          | VITORIA        | CEL  | 89966809 |
+| LORENA   | F    | LEBLON          | RIO DE JANEIRO | COM  | 88679978 |
+| CARMEM   | F    | CENTRO          | RIO DE JANEIRO | CEL  | 33567765 |
+| CARMEM   | F    | CENTRO          | RIO DE JANEIRO | CEL  | 88668786 |
+| CARMEM   | F    | CENTRO          | RIO DE JANEIRO | COM  | 55689654 |
+| ADRIANA  | F    | CENTRO          | RIO DE JANEIRO | COM  | 88687979 |
+| ADRIANA  | F    | CENTRO          | RIO DE JANEIRO | RES  | 77755785 |
+| JOICE    | F    | CENTRO          | RIO DE JANEIRO | COM  | 88965676 |
+| Letiçia  | F    | Vila isabel     | Rio de Janeiro | CEL  | 98653652 |
+| Barbara  | F    | Catete          | Rio de Janeiro | CEL  | 23652369 |
+| Maira    | F    | Leblon          | Rio de Janeiro | RES  | 98565326 |
+| Celia    | F    | Barra da tijuca | Rio de Janeiro | COM  | 23651456 |
+| Celia    | F    | Barra da tijuca | Rio de Janeiro | COM  | 45632145 |
++----------+------+-----------------+----------------+------+----------+
