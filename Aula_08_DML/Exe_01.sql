@@ -22,6 +22,20 @@ inner join telefone t
 on f.idcliente = t.id_cliente
 where sexo = 'M';
 
++-----------+------------+------+--------------------+-------------+--------------------+------------+----------------+--------+------+----------+
+| idcliente | nome       | sexo | email              | cpf         | rua                | bairro     | cidade         | estado | tipo | numero   |
++-----------+------------+------+--------------------+-------------+--------------------+------------+----------------+--------+------+----------+
+|         2 | ANDRE      | M    | ANDRE@GLOBO.COM    | 7687567     | RUA MAIA LACERDA   | ESTACIO    | RIO DE JANEIRO | RJ     | COM  | 44522578 |
+|         7 | EDUARDO    | M    | NULL               | 54376457    | AV CAPITAO ANTUNES | CENTRO     | CURITIBA       | PR     | CEL  | 99655768 |
+|         8 | ANTONIO    | M    | ANTONIO@IG.COM     | 12436767    | AV CARLOS BARROSO  | JARDINS    | SAO PAULO      | SP     | RES  | 89955665 |
+|         8 | ANTONIO    | M    | ANTONIO@IG.COM     | 12436767    | AV CARLOS BARROSO  | JARDINS    | SAO PAULO      | SP     | RES  | 77455786 |
+|         9 | ANTONIO    | M    | ANTONIO@UOL.COM    | 3423565     | ALAMEDA SAMPAIO    | BOM RETIRO | CURITIBA       | PR     | RES  | 68976565 |
+|         9 | ANTONIO    | M    | ANTONIO@UOL.COM    | 3423565     | ALAMEDA SAMPAIO    | BOM RETIRO | CURITIBA       | PR     | CEL  | 99656675 |
+|        17 | Fernando   | M    | fefe@123.com       | 34261845326 | Boiabeira grande   | Copacabana | Rio de Janeiro | RJ     | CEL  | 85623659 |
+|        17 | Fernando   | M    | fefe@123.com       | 34261845326 | Boiabeira grande   | Copacabana | Rio de Janeiro | RJ     | CEL  | 84715245 |
+|        21 | Ronaldinho | M    | ronaldinho@123.com | 45625641523 | Palho sem aço      | Ipanema    | Rio de Janeiro | RJ     | CEL  | 95822368 |
++-----------+------------+------+--------------------+-------------+--------------------+------------+----------------+--------+------+----------+
+
 
 3)
 select idcliente, nome, sexo, email, cpf, 
@@ -34,22 +48,37 @@ inner join telefone t
 on f.idcliente = t.id_cliente
 where sexo = 'F';
 
++-----------+----------+------+-------------------+-------------+------------------+-----------------+----------------+--------+------+----------+
+| idcliente | nome     | sexo | email             | cpf         | rua              | bairro          | cidade         | estado | tipo | numero   |
++-----------+----------+------+-------------------+-------------+------------------+-----------------+----------------+--------+------+----------+
+|         3 | GIOVANA  | F    | NULL              | 0876655     | RUA VISCONDESSA  | CENTRO          | RIO DE JANEIRO | RJ     | RES  | 89766554 |
+|         5 | DANIELE  | F    | DANIELE@GMAIL.COM | 43536789    | RUA ARAUJO LIMA  | CENTRO          | VITORIA        | ES     | CEL  | 89966809 |
+|         6 | LORENA   | F    | NULL              | 774557887   | RUA CASTRO ALVES | LEBLON          | RIO DE JANEIRO | RJ     | COM  | 88679978 |
+|        11 | CARMEM   | F    | CARMEM@IG.COM     | 787832213   | RUA GERONIMO     | CENTRO          | RIO DE JANEIRO | RJ     | CEL  | 33567765 |
+|        11 | CARMEM   | F    | CARMEM@IG.COM     | 787832213   | RUA GERONIMO     | CENTRO          | RIO DE JANEIRO | RJ     | CEL  | 88668786 |
+|        11 | CARMEM   | F    | CARMEM@IG.COM     | 787832213   | RUA GERONIMO     | CENTRO          | RIO DE JANEIRO | RJ     | COM  | 55689654 |
+|        12 | ADRIANA  | F    | ADRIANA@GMAIL.COM | 88556942    | RUA GOMES FREIRE | CENTRO          | RIO DE JANEIRO | RJ     | COM  | 88687979 |
+|        12 | ADRIANA  | F    | ADRIANA@GMAIL.COM | 88556942    | RUA GOMES FREIRE | CENTRO          | RIO DE JANEIRO | RJ     | RES  | 77755785 |
+|        13 | JOICE    | F    | JOICE@GMAIL.COM   | 55412256    | RUA GOMES FREIRE | CENTRO          | RIO DE JANEIRO | RJ     | COM  | 88965676 |
+|        15 | Letiçia  | F    | letiçia@123.com   | 63521653456 | Sal sem dente    | Vila isabel     | Rio de Janeiro | RJ     | CEL  | 98653652 |
+|        16 | Barbara  | F    | barbara@123.com   | 75632641563 | Alura            | Catete          | Rio de Janeiro | RJ     | CEL  | 23652369 |
+|        18 | Maira    | F    | Maira@123.com     | 15236456325 | Munis freitas    | Leblon          | Rio de Janeiro | RJ     | RES  | 98565326 |
+|        19 | Celia    | F    | celia@123.com     | 95686953265 | Súmario da voz   | Barra da tijuca | Rio de Janeiro | RJ     | COM  | 23651456 |
+|        19 | Celia    | F    | celia@123.com     | 95686953265 | Súmario da voz   | Barra da tijuca | Rio de Janeiro | RJ     | COM  | 45632145 |
++-----------+----------+------+-------------------+-------------+------------------+-----------------+----------------+--------+------+----------+
+
 
 4)
 select count(*) as quantidade, sexo 
 from formulario
 group by sexo;
 
-
-select idcliente, nome, sexo, email, cpf, 
-rua, bairro, cidade, estado, 
-tipo, numero
-from formulario f 
-inner join enderecos e 
-on f.idcliente = e.id_cliente
-inner join telefone t  
-on f.idcliente = t.id_cliente
-where sexo = 'F';
++------------+------+
+| quantidade | sexo |
++------------+------+
+|          8 | M    |
+|         13 | F    |
++------------+------+
 
 
 5) /* Ambos os códigos trazem o mesmo resultado */
@@ -98,7 +127,7 @@ AND (TIPO = 'RES' OR TIPO = 'COM');
 +-----------+---------+------+-------------------+--------+----------------+--------+------+
 
 
-
+6)
 select f.nome, f.email, t.numero, t.tipo, t.id_cliente, e.estado
 from formulario f  
 inner join telefone t  
@@ -122,7 +151,7 @@ and tipo = 'CEL';
 +------------+--------------------+----------+------+------------+--------+
 
 
-
+7)
 select f.nome, f.email, t.numero, e.estado
 from formulario f  
 inner join telefone t  
@@ -132,12 +161,5 @@ on f.idcliente = e.id_cliente
 where sexo = 'F' 
 and estado = 'SP';
 
-
-select f.nome, f.sexo, t.numero, t.tipo, e.estado
-from formulario f
-inner join telefone t
-on f.idcliente = t.id_cliente
-inner join enderecos e
-on f.idcliente = e.id_cliente;
 
 RES: VAZIO
